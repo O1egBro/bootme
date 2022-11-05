@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Login</title>
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+	
+	<!--styles-->
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	<!--libs-->
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script type="text/javascript" src="js/libs/jquery-11.js"></script>
+	<script type="text/javascript" src="js/libs/device.min.js"></script>
+	<script type="text/javascript" src="js/libs/moment.js"></script>
+	<script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/libs/bootstrap-datetimepicker.js"></script>
+	<!--custom scroll-->
+	<script type="text/javascript" src="js/libs/scrollpane/jquery.jscrollpane.min.js"></script>
+	<script type="text/javascript" src="js/libs/scrollpane/jquery.mousewheel.js"></script>
+	<!--cut text and add dots-->
+	<script type="text/javascript" src="js/libs/dodot/jquery.dotdotdot.min.js"></script>
+	
+	<!--formstyler-->
+	<script type="text/javascript" src="js/libs/formstyler/jquery.formstyler.min.js"></script>
+	
+	<!--ui slider-->
+	<script type="text/javascript" src="js/libs/ui_slider/jquery-ui.min.js"></script>
+	
+	<!--formstyler-->
+	<script type="text/javascript" src="js/libs/materialize-tags/materialize-tags.js"></script>
+	<script type="text/javascript" src="js/libs/materialize-tags/typeahead.jquery.js"></script>
+	
+	<!--modules-->
+	<script type="text/javascript" src="js/modules/menu.js"></script>
+	<script type="text/javascript" src="js/modules/notice.js"></script>
+	<script type="text/javascript" src="js/modules/modal.js"></script>
+	<script type="text/javascript" src="js/modules/toast.js"></script>
+	
+	<!--general-->
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/modules/i18n.js"></script>
+	<script type="text/javascript" src="js/modules/validation.js"></script>
+	<script type="text/javascript" src="js/components/login.js"></script>
+</head>
+
+<body>
+<div class="modal fade" id="modalLicense">
+	<div class="modal-dialog">
+		<div class="modal-dialogAlignOut">
+			<div class="modal-dialogAlignIn">
+				<div class="modal-dialogContent w-l">
+					<div class="modal__header">
+						<span class="modal__close icon-cross" data-dismiss="modal"></span>
+						<h2 class="modal__headerTitle">
+							Соглашение / правила пользования системой
+						</h2>
+					</div>
+					<div class="modal__body">
+						<div class="modal__bodyIn w-l">
+							<div class="license__section">
+								<h5 class="license__title">Общие правила</h5>
+								<ol class="license__list">
+									<li>
+										Регистрация в системе доступна всем желающим, бесплатна и является добровольным решением каждого.
+									</li>
+									<li>
+										Администрация в праве отказать в предоставлении доступа к системе без объяснения причин.
+									</li>
+									<li>
+										Адрес электронного почтового ящика, используемый для регистрации, должен быть реальным. Администрация может использовать адрес электронной почты каждого пользователя, для рассылки объявлений и новостей сервиса.
+									</li>
+									<li>
+										Аккаунт пользователя, который не подтвердил регистрацию, удаляется через один месяц. Если же участник не проявлял активности на протяжении трех месяцев, его аккаунт может быть удален, а все материалы пользователя не подлежат возврату.
+									</li>
+									<li>
+										Администрация не распространяет личную информацию пользователей, указанную при регистрации в сервисе, при выполнении участниками всех правил Bootup.me. Если же пользователь вел противозаконную деятельность, администрация уведомит об этом соответствующие органы, передав им необходимые личные данные нарушителя.
+									</li>
+									<li>
+										Администрация не дает никаких гарантий на результаты использования сервисов предоставляемых в системе Bootup.Me
+									</li>
+									 <li>
+										Пользователь понимает и принимает на себя полную ответственность за использование системы. Также понимает возможность негативных последствий и принимает на себя полную ответственность за возможные нарушения правил взаимодействия со сторонними сервисами, системами, сайтами путем использования сервиса Bootup.me
+									</li>
+									<li>
+										Администрация вправе прекратить доступ сервису без объяснения причины.
+									</li>
+									<li>
+										Удаленный аккаунт пользователя не подлежит восстановлению.
+									</li>
+									<li>
+										Использование пользователем любых методов для взлома системы, а также введение недостоверной информации при регистрации – грубые нарушения правил. При обнаружении подобной деятельности участника, администрация вправе удалить его аккаунт, без объяснения причин.
+									</li>
+									<li>
+										Запрещено использование любых скриптов и программ при работе с системой Bootup.me, кроме предоставленного ПО самой системой.
+									</li>
+									<li>
+										Аккаунт в сервисе принадлежит только одному пользователю. Одновременное использование одного акаунта с двух и более адресов запрещено и блокируется системой. Если участник попытается продать или же передать свой аккаунт другому человеку, его учетная запись может быть заблокирована
+									</li>
+									<li>
+										Любые обращения к администрации сервиса с нецензурным содержанием или оскорбительного характера игнорируются. Если инцидент повторится, администрация вправе удалить аккаунт пользователя без предупреждения.
+									</li>
+									<li>
+										Администрация может добавлять или же исключать использование в системе разных платежных систем, исходя из технических возможностей сервиса или политики самих платежных систем.
+									</li>
+									<li>
+										Администрация оставляет за собой право, на увеличение или уменьшение срока и стоимости доступа к материалам, пакетам, отдельным скриптам и разделам сервиса
+									</li>
+									<li>
+										Администрация может добавлять или же исключать для использования скрипты, материалы, исходя из технических необходимостей сервиса на усмотрение администрации.
+									</li>
+									<li>
+										Пользователь осознает, что несет полную ответственность за использование и возможные последствия использования любых материалов полученных в системе Bootup.me по отношению к третьим лицам или другим сервисам.
+									</li>
+									<li>
+										Администрация не участвует в спорах между пользователем и третьими лицами или сервисами. Любые споры, решаются спорящими сторонами.
+									</li>
+									<li>
+										Администрация системы публикует материалы только для ознакомительных целей и не несет ответственности за любые последствия их использования пользователями системы.
+									</li>
+									<li>
+										Пользователям системы запрещается: заниматься распространением, копированием, измениением материалов полученых в системе, с целью дальнейшего распространения так и без таковой. В случаях подозрения или выявления фактов: распространения, также как и любых попыток распространения, копирования, модифицирования в любом виде, технологий и материалов исползованных в сиситеме, пользователям администрация вправе прекратить доступ к системе
+									</li>
+									<li>Приобретение доступа к сервису с целью использования, отличной от его прямого назначения, влечет немедленное ограничение доступа без возврата средств.
+										
+									</li>
+									<li>
+										Так как невозможно описать в правилах все специфические области работы в сервисе, любые требования или же рекомендации администрации системы Bootup.me следует воспринимать как дополнения к правилам.
+									</li>
+									<li>
+										В случае нарушения одного или более пунктоав правил, рекоммендаций, администрация оставляет за собой право прекратить доступ, к системе временно для выяснения деталей нарушения, или полсностью прекратить доступ к системе без обьяснения причин
+									</li>
+									<li>
+										Данные правила могут быть изменены и дополнены администрацией без уведомления пользователя
+									</li>
+									<li>
+										Регистрируясь в системе, пользователь соглашается со всеми пунктами правил системы Bootup.me
+									</li>
+								</ol>
+							</div>
+							<div class="license__section">
+								<h5 class="license__title">Обязанности пользователей системы</h5>
+								<ol class="license__list">
+									<li>
+										Регистрируясь в системе, пользователь соглашается со всеми пунктами правил системы Bootup.me
+									</li>
+									<li>
+										Пользователь при регистрации, должен указывать правдивую информацию о себе. Особенное внимание следует обратить на правильный ввод электронного почтового ящика. Ввод ложных данных – является нарушением.
+									</li>
+									<li>
+										Для обращения к администрации сервиса нужно использовать только существующую в системе форму обратной связи, внутреннюю систему тикетов или контактные данные, указанные на страницах системы. Именно посредством обратной связи осуществляется общение с администрацией системы. Получение ответов при использовании иных методов связи не гарантируется.
+									</li>
+									<li>
+										Пользователи должны раз в неделю просматривать правила на предмет изменения правил или же добавления новых.
+									</li>
+									<li>
+										Запрещается рассылать сообщения, которые не имеют отношения к работе системы. Аккаунты нарушителей будут незамедлительно удаляться администрацией.
+									</li>
+									<li>
+										Запрещено, использовать идентичные данные в нескольких аккаунтах.
+									</li>
+									<li>
+										Если будет обнаружено, что один пользователь использует два или более аккаунта без оплаты услуг, все они могут быть удалены администрацией без объяснения причин.
+									</li>
+									<li>
+										Запрещается регистрироваться в системе или же осуществлять вход в несколько аккаунтов с одного компьютера. Ровно как и использовать одну учетную запись с нескольких адресов. Данные действия могу т блокируются системой вплоть до удаления аккаунта/аккаунтов.
+									</li>
+									<li>
+										Запрещается обращаться к сервису используя VPN/Proxy, сервера приобретенные и настроенные самостоятельно у третей стороны. При выявлении случаев взаимодествия с сервисом с ардесов принадлежащих компаниям предоставляющим услуги хостинга,VPN/Proxy - эти адреса будут блокироваться и/или пользователю будет сделано предупреждение, в случае повторных попыток взаимодествия с сервисом с ардесов принадлежащих компаниям предоставляющим услуги хостинга, хостинга ,VPN/Proxy учетая запись может быть удалена без возврата средств и предупреждений.
+									</li>
+									<li>
+										Запрещается, повторное создание аккаунта без оплаты услуг - при наличии действующей учетной записи. Если возникнет необходимость удалить старый аккаунт, это необходмо сделать только уведомив техническую поддержку, а только затем следует зарегистрировать новый.
+									</li>
+									<li>
+										Запрещается, создание аккаунта с целью воспользоваться реферральной ссылкой или скидкой в свою пользу. В случае выявления подобного нарушения администрация оставляет за собой право удалить ОБА аккаунта участвующих в данном нарушении. Оплата и комиссия в данном случае не подлежат возврату или выводу.
+									</li>
+									<li>Если пользователь обнаружил погрешности или неисправности при работе с сервисом, следует сообщить о них администрации для устранения проблем.
+										
+									</li>
+									<li>
+										Пользователям запрещено, предпринимать попытки взломать сайт или использовать возможные ошибки скриптов. Все нарушители незамедлительно будут удалены из системы.
+									</li>
+									<li>При оплате любых услуг в системе и дальнейшем отказе от их использования  средства пользователю не возвращаются.
+										
+									</li>
+									<li>
+										В случае удаления аккаунта участника сервиса за нарушения правил, денежные средства возврату не подлежат а комисси обнуляются.
+									</li>
+									<li>
+										Данные правила могут быть изменены и дополнены администрацией без уведомления пользователя
+									</li>
+									<li>
+										Регистрируясь в системе, пользователь соглашается со всеми пунктами правил системы Bootup.me
+									</li>
+								</ol>
+							</div>
+							<div class="license__section">
+								<h5 class="license__title">Денежная политика системы</h5>
+								<ol class="license__list">
+									<li class="">
+										Активация доступа сервису осуществляется в течении 24 часов по рабочим дням и только после оплаты, средства не подлежит возврату даже в случаях отказа, невозможности пользователя пользоваться системой, а также при утрате актуальности информации, материалов предоставляемых сервисом BootUp.me .
+									</li>
+									<li class="">
+										Оплачивая доступ к системе, пользователь соглашается, что внесенные средства не подлежат возврату.
+									</li>
+									<li class="">
+										Оплачивая услуги, пользователь соглашается со всеми пунктами правил системы Bootup.me
+									</li>
+									<li class="">
+										Регистрируясь в системе, пользователь подтверждает свою дееспособнось и соглашается со всеми пунктами правил системы Bootup.me
+									</li>
+									<li class="">
+										Данные правила могут быть изменены и дополнены администрацией без уведомления пользователя
+									</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<header class="header header-p-fixed">
+		<a href="login.html" class="logo">
+			<img src="images/logo.png" alt="bootUpMe" class="logo__pic"/>
+		</a>
+	</header>
+	
+	<section class="content content-align">
+		<div class="content-alignIn">
+			<div class="center__wrap">
+				<div class="login__header">
+					<a href="#login" class="login__title left active" data-toggle="tab">
+						<span class="login__titleArrow icon-arrow-left"></span>
+						<span class="login__titleText">Авторизация</span>
+					</a>
+					<a href="#register" class="login__title right" data-toggle="tab">
+						<span class="login__titleText">Регистрация</span>
+						<span class="login__titleArrow icon-arrow-right"></span>
+					</a>
+				</div>
+				<div class="login__body">
+					<div class="tab__pane active" id="login">
+						<form action="#">
+							<label class="row">
+								<span class="label type1">Адрес электронной почты</span>
+								<span class="field__wrap">
+									<input type="text" id="loginForm_email" class="field field-login" placeholder="Email" tabindex="1">
+								</span>
+							</label>
+							<label class="row">
+								<span class="label type1">Пароль</span>
+								<span class="field__wrap">
+									<input type="password" id="loginForm_password" class="field field-login" placeholder="Пароль" tabindex="2">
+								</span>
+							</label>
+							<div class="clearfix">
+								<a href="restore_pass.html" class="forgot">Восстановить пароль</a>
+							</div>
+							<div class="form__footer">
+								<div class="remember">
+									<label class="customCheck__label">
+			                            <span class="customCheck__labelRelative">
+			                                <input type="checkbox" class="customCheck__check">
+			                                <span class="customCheck__checkPseudo"></span>
+			                            </span>
+										<span class="customCheck__labelPseudo">Запомнить меня</span>
+									</label>
+								</div>
+								<button class="btn btn-sbm pull-right" type="submit" id="loginForm_loginBtn" tabindex="3">Войти</button>
+							</div>
+						</form>
+					</div>
+					<div class="tab__pane"  id="register">
+						<form action="#">
+							<label class="row">
+								<span class="label type1">Адрес электронной почты</span>
+								<span class="field__wrap">
+									<input type="text" class="field field-login js-setEmail" placeholder="Email" tabindex="1">
+								</span>
+							</label>
+							<label class="row row-confirmEmail js-confirmEmail">
+								<span class="field__wrap">
+									<input type="text" class="field field-login" placeholder="Подтвердите Email" tabindex="2">
+								</span>
+							</label>
+							<label class="row">
+								<span class="label type1">Пароль</span>
+								<span class="field__wrap">
+									<input type="password" class="field field-login js-setPass" placeholder="Пароль" tabindex="3">
+								</span>
+							</label>
+							<label class="row row-confirmPass js-confirmPass">
+								<span class="field__wrap">
+									<input type="password" class="field field-login" placeholder="Введите подтверждение пароля" tabindex="4">
+								</span>
+							</label>
+							<div class="form__footer">
+								<div class="agree">
+									<label class="customCheck__label">
+		                            <span class="customCheck__labelRelative">
+		                                <input type="checkbox" class="customCheck__check">
+		                                <span class="customCheck__checkPseudo"></span>
+		                            </span>
+										<span class="customCheck__labelPseudo">
+										Я согласен с
+										<a href="" class="agree__link" data-toggle="modal" data-target="#modalLicense">условиями</a>
+									</span>
+									</label>
+								</div>
+								<button class="btn btn-sbm pull-right" tabindex="5"> Зарегистрировать</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

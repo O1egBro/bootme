@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Вести код</title>
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+	
+	<!--styles-->
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	<!--libs-->
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script type="text/javascript" src="js/libs/jquery-11.js"></script>
+	<script type="text/javascript" src="js/libs/device.min.js"></script>
+	<script type="text/javascript" src="js/libs/moment.js"></script>
+	<script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/libs/bootstrap-datetimepicker.js"></script>
+	<!--custom scroll-->
+	<script type="text/javascript" src="js/libs/scrollpane/jquery.jscrollpane.min.js"></script>
+	<script type="text/javascript" src="js/libs/scrollpane/jquery.mousewheel.js"></script>
+	<!--cut text and add dots-->
+	<script type="text/javascript" src="js/libs/dodot/jquery.dotdotdot.min.js"></script>
+	
+	<!--formstyler-->
+	<script type="text/javascript" src="js/libs/formstyler/jquery.formstyler.min.js"></script>
+	
+	<!--ui slider-->
+	<script type="text/javascript" src="js/libs/ui_slider/jquery-ui.min.js"></script>
+	
+	<!--formstyler-->
+	<script type="text/javascript" src="js/libs/materialize-tags/materialize-tags.js"></script>
+	<script type="text/javascript" src="js/libs/materialize-tags/typeahead.jquery.js"></script>
+	
+	<!--modules-->
+	<script type="text/javascript" src="js/modules/menu.js"></script>
+	<script type="text/javascript" src="js/modules/notice.js"></script>
+	<script type="text/javascript" src="js/modules/modal.js"></script>
+	<script type="text/javascript" src="js/modules/toast.js"></script>
+	
+	<!--general-->
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/components/login.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+	<header class="header header-p-fixed">
+		<a href="login.html" class="logo">
+			<img src="images/logo.png" alt="bootUpMe" class="logo__pic"/>
+		</a>
+	</header>
+	
+	<section class="content content-align">
+		<div class="content-alignIn">
+			<div class="center__wrap">
+				<div class="login__body">
+					<form action="#">
+						<label class="row">
+							<span class="label type1">На ваш адрес электронной почты был отправлен код.
+								Введите его или перейдите по ссылке в письме
+							</span>
+							<span class="field__wrap field-codeWrap">
+								<input type="text" class="field field-code" id="firstFieldCode" maxlength="1">
+								<input type="text" class="field field-code" maxlength="1">
+								<input type="text" class="field field-code" maxlength="1">
+								<input type="text" class="field field-code" maxlength="1">
+							</span>
+						</label>
+						<div class="form__footer text_c">
+							<button class="btn btn-sbm">Продолжить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

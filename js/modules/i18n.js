@@ -1,0 +1,1 @@
+"use strict";var keys={ru:{validation:{email_is_required:"Введите емейл",email_is_not_valid:"Введите правильный емейл",password_is_required:"Введите пароль",short_password:"Пароль должен содержать 6 символов"}}},defaultLang="ru",i18n={translate:function r(a,i){i=i||defaultLang;for(var s=a.split("."),r=keys[i];s.length&&(r=r[s.shift()]););return r}};

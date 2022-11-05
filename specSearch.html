@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>Special search</title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+
+    <!--styles-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--libs-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/libs/jquery-11.js"></script>
+    <script type="text/javascript" src="js/libs/device.min.js"></script>
+    <script type="text/javascript" src="js/libs/moment.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap-datetimepicker.js"></script>
+    <!--custom scroll-->
+    <script type="text/javascript" src="js/libs/scrollpane/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/libs/scrollpane/jquery.mousewheel.js"></script>
+    <!--cut text and add dots-->
+    <script type="text/javascript" src="js/libs/dodot/jquery.dotdotdot.min.js"></script>
+
+    <!--formstyler-->
+    <script type="text/javascript" src="js/libs/formstyler/jquery.formstyler.min.js"></script>
+
+    <!--ui slider-->
+    <script type="text/javascript" src="js/libs/ui_slider/jquery-ui.min.js"></script>
+
+    <!--formstyler-->
+    <script type="text/javascript" src="js/libs/materialize-tags/materialize-tags.js"></script>
+    <script type="text/javascript" src="js/libs/materialize-tags/typeahead.jquery.js"></script>
+
+    <!--modules-->
+    <script type="text/javascript" src="js/modules/menu.js"></script>
+    <script type="text/javascript" src="js/modules/notice.js"></script>
+    <script type="text/javascript" src="js/modules/modal.js"></script>
+    <script type="text/javascript" src="js/modules/toast.js"></script>
+
+    <!--general-->
+    <script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body>
+    <div id="menuHint__wrap" class="menuHint__wrap">
+        <a href="" class="menuHint__link"></a>
+    </div>
+
+
+    <div class="modal fade" id="modalMap">
+        <div class="modal-dialog">
+            <div class="modal-dialogAlignOut">
+                <div class="modal-dialogAlignIn">
+                    <div class="modal-dialogContent w-l">
+                        <div class="modal__header">
+                            <span class="modal__close icon-cross" data-dismiss="modal"></span>
+                            <h2 class="modal__headerTitle">
+                                Поиск на карте
+                            </h2>
+                        </div>
+                        <div class="modal__body">
+                            <div class="modal__bodyIn w-xl">
+                                <div class="map__wrap">
+                                    <div class="map__frame">
+                                        <div id="google-map1" class="mapInside"></div>
+                                    </div>
+                                    <div class="map__descr">
+                                        <div class="map__title">Мои места</div>
+                                        <div class="map__row">
+                                            <a href="" class="map__trash icon-trash2"></a>
+                                            <a href="" class="map__pin icon-pin2"></a>
+                                            <label class="customCheck__label check-map">
+				                            <span class="customCheck__labelRelative">
+				                                <input type="checkbox" class="customCheck__check">
+				                                <span class="customCheck__checkPseudo"></span>
+				                            </span>
+											<span class="customCheck__labelPseudo">Москва, центр</span>
+										</label>
+                                        </div>
+                                        <div class="map__row">
+                                            <a href="" class="map__trash icon-trash2"></a>
+                                            <a href="" class="map__pin icon-pin2"></a>
+                                            <label class="customCheck__label check-map">
+				                            <span class="customCheck__labelRelative">
+				                                <input type="checkbox" class="customCheck__check">
+				                                <span class="customCheck__checkPseudo"></span>
+				                            </span>
+											<span class="customCheck__labelPseudo">Астана, Керуен</span>
+										</label>
+                                        </div>
+                                        <div class="map__row">
+                                            <a href="" class="map__trash icon-trash2"></a>
+                                            <a href="" class="map__pin icon-pin2"></a>
+                                            <label class="customCheck__label check-map">
+				                            <span class="customCheck__labelRelative">
+				                                <input type="checkbox" class="customCheck__check">
+				                                <span class="customCheck__checkPseudo"></span>
+				                            </span>
+											<span class="customCheck__labelPseudo">Алматы, Тау Спа</span>
+										</label>
+                                        </div>
+                                        <div class="map__row">
+                                            <a href="" class="map__trash icon-trash2"></a>
+                                            <a href="" class="map__pin icon-pin2"></a>
+                                            <label class="customCheck__label check-map">
+				                            <span class="customCheck__labelRelative">
+				                                <input type="checkbox" class="customCheck__check">
+				                                <span class="customCheck__checkPseudo"></span>
+				                            </span>
+											<span class="customCheck__labelPseudo">Берлин, ратуша</span>
+										</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="map__form">
+                                    <div class="map__formIn">
+                                        <div class="row clearfix">
+                                            <div class="col col-9 pr-20">
+                                                <input id="address" type="text" class="field text_c" placeholder="Введите название местности">
+                                            </div>
+                                            <div class="col col-3">
+                                                <button class="btn btn-sbm" id="search_address">Поиск</button>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col col-9 pr-20">
+                                                <div class="colLeft col col-5">
+                                                    <div class="label type2">Введите широту</div>
+                                                </div>
+                                                <div class="colRight col col-7">
+                                                    <div class="colRight__in">
+                                                        <input type="text" class="field text_c" id="latitude" placeholder="Введите широту" value="53.2455">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col col-9 pr-20">
+                                                <div class="colLeft col col-5">
+                                                    <div class="label type2">Введите долготу</div>
+                                                </div>
+                                                <div class="colRight col col-7">
+                                                    <div class="colRight__in">
+                                                        <input type="text" class="field text_c" id="longitude" placeholder="Введите долготу" value="53.2455">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col col-9 pr-20">
+                                                <div class="colLeft col col-5">
+                                                    <div class="label type2">Радиус поиска (в метрах)</div>
+                                                </div>
+                                                <div class="colRight col col-7">
+                                                    <div class="colRight__in">
+                                                        <input type="number" id="mar_radius" class="formstyler w140 meter" value="290">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row map__formBtn">
+                                        <button class="btn btn-sbm">Добавить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <header class="header header-p-fixed">
+            <a href="" class="menu__btn js-menuTrigger">
+                <span class="menu__btnLine"></span>
+                <span class="menu__btnLine"></span>
+                <span class="menu__btnLine"></span>
+            </a>
+            <a href="" class="logo">
+                <img src="images/logo.png" alt="bootUpMe" class="logo__pic" />
+            </a>
+            <div class="dd headerUser">
+                <a href="" class="ddTrigger icon-arrow headerUser__trigger" data-toggle="dropdown">
+                    <span class="headerUser__photo">
+					<img src="images/img_cont/userPic.jpg" alt="" class="headerUser__pic"/>
+				</span>
+                    <span class="ddTrigger__text headerUser__name">
+					Arman Tolubayev
+				</span>
+                </a>
+                <div class="ddMenu">
+                    <ul class="ddMenu__list">
+                        <li class="ddMenu__item headerUser__ddItem">
+                            <a href="" class="ddMenu__link">
+                                <span class="headerUser__ddItemIcon icon-settings navIcon-settings"></span>
+                                <span class="headerUser__ddItemText">Настройки</span>
+                            </a>
+                        </li>
+                        <li class="ddMenu__item headerUser__ddItem">
+                            <a href="" class="ddMenu__link">
+                                <span class="headerUser__ddItemIcon icon-power navIcon-leave"></span>
+                                <span class="headerUser__ddItemText">Выход</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerNotice">
+                <a href="" class="headerNotice__trigger js-headerNotice">
+                    <span class="headerNotice__index">1</span>
+                    <img src="images/icons/pic-bell@2x.png" alt="" class="headerNotice__pic" />
+                </a>
+            </div>
+        </header>
+        <div class="menu ">
+            <div class="menu__header">
+                <div class="menu__headerTitle">Активный Instagram аккаунт:</div>
+                <div class="dd menuUser__dd">
+                    <a href="" class="ddTrigger icon-arrow menuUser__trigger" data-toggle="dropdown">
+                        <span class="menuUser__photo">
+						<span class="status notActive"></span>
+                        <img src="images/img_cont/userPic.jpg" alt="" class="menuUser__pic">
+                        </span>
+                        <span class="ddTrigger__text menuUser__name">
+						Arman Tolubayev
+					</span>
+                    </a>
+                    <div class="ddMenu">
+                        <ul class="ddMenu__list">
+                            <li class="ddMenu__item menuUser__ddItem">
+                                <a href="" class="ddMenu__link">
+                                    <span class="menuUser__ddItemIcon icon-settings navIcon-settings"></span>
+                                    <span class="menuUser__ddItemText">Настройки</span>
+                                </a>
+                            </li>
+                            <li class="ddMenu__item menuUser__ddItem">
+                                <a href="" class="ddMenu__link">
+                                    <span class="menuUser__ddItemIcon icon-power navIcon-leave"></span>
+                                    <span class="menuUser__ddItemText">Выход</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu__footer">
+                <a href="" class="nav__item menuHint" data-tooltip-text="Выйти">
+                    <span class="nav__itemIcon icon-power navIcon-leave"></span>
+                    <span class="nav__itemText">Выйти</span>
+                </a>
+            </div>
+
+            <div class="menu__scroll">
+                <div class="scrollpane">
+                    <nav class="nav">
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Аккаунты">
+                            <span class="nav__itemIcon icon-user navIcon-acc"></span>
+                            <span class="nav__itemText">Аккаунты</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Статистика">
+                            <span class="nav__itemIcon icon-chart navIcon-statistic"></span>
+                            <span class="nav__itemText">Статистика</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Инструменты">
+                            <span class="nav__itemIcon icon-key navIcon-tools"></span>
+                            <span class="nav__itemText">Инструменты</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Задачи">
+                            <span class="nav__itemIcon icon-notepad navIcon-goals"></span>
+                            <span class="nav__itemText">Задачи</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Постинг">
+                            <span class="nav__itemIcon icon-instagram navIcon-insta"></span>
+                            <span class="nav__itemText">Постинг</span>
+                        </a>
+                        <a href="" class="nav__item active menuHint" data-tooltip-text="Магазин">
+                            <span class="nav__itemIcon icon-bag navIcon-shop"></span>
+                            <span class="nav__itemText">Магазин</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Руководства">
+                            <span class="nav__itemIcon icon-book navIcon-management"></span>
+                            <span class="nav__itemText">Руководства</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Поддержка">
+                            <span class="nav__itemIcon icon-msg navIcon-support"></span>
+                            <span class="nav__itemText">Поддержка</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Настройки">
+                            <span class="nav__itemIcon icon-settings navIcon-settings"></span>
+                            <span class="nav__itemText">Настройки</span>
+                        </a>
+                        <a href="0" class="nav__item menuHint js-menuTrigger" data-tooltip-text="Свернуть меню">
+                            <span class="nav__itemIcon icon-arrow2 navIcon-collapse navIcon-collapse"></span>
+                            <span class="nav__itemText">Свернуть меню</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="notice__wrap">
+            <ul class="noticeNav__wrap">
+                <li class="noticeNav__li active">
+                    <a href="" data-tab-class="notification" class="noticeNav__item js-noticeNav">Уведомления</a>
+                </li>
+                <li class="noticeNav__li">
+                    <a href="#" data-tab-class="msg" class="noticeNav__item js-noticeNav">Сообщения</a>
+                </li>
+            </ul>
+            <div class="noticePane__wrap">
+                <div class="noticePane active" id="notification">
+                    <div class="noticePane__scroll">
+                        <div class="scrollpane dark">
+                            <ul class="noticePane__list">
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-bag noticeIcon-shop"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Заканчивается срок действия пакета PRO. Не забудьте продлить его до 5.11.2016
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-instagram noticeIcon-insta"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Запланированный вами пост на 23:15 1.11.2016 года опубликован
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-notepad noticeIcon-goals"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Задача “Поиск по Москве” завершена. Результат собран в файл “Москва для девушек”
+                                        </p>
+                                        <button class="btn btn-openNotice">Открыть</button>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-chart noticeIcon-statistic"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Статистика за октябрь 2016 года готова для анализа
+                                        </p>
+                                        <button class="btn btn-openNotice">Просмотреть</button>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-bag noticeIcon-shop"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            В магазин добавлен новый пакет для поиска и анализа больших данных в облаке.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="noticePane" id="msg">
+                    <div class="noticePane__header">
+                        <div class="noticeSearch__wrap">
+                            <span class="noticeSearch__icon icon-search"></span>
+                            <input type="submit" class="noticeSearch__sbm">
+
+                            <div class="dd noticeSearch__sortDD">
+                                <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                    <span class="ddTrigger__text">Только онлайн</span>
+                                </a>
+                                <div class="ddMenu">
+                                    <ul class="ddMenu__list">
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link">Только онлайн</a>
+                                        </li>
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link">Все</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <input type="text" class="field noticeSearch__field">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="noticePane__scroll noticePane__scroll-margin">
+                        <div class="scrollpane dark">
+                            <ul class="noticePane__list">
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">Не работает постинг</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Вы: Нет, это была системная ошибка, я ничего не могу сделать
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">Не могу скачать статистику</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											На систему надейся, а сам не плошай. Пословица
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus red"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">А где раздел помощь?</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Я так и думала, что у вас там, что-то сломалось
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">вчера</span>
+                                        <span class="noticeMsg__title">Куда делся старый дизайн</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Куда делся старый дизайн
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="content">
+            <div class="main">
+                <div class="mainSection">
+                    <ul class="breadcrumbs breadcrumbs-page text_c">
+                        <li>
+                            <a href="" class="breadcrumbs__nav left">
+                                <span class="breadcrumbs__navIcon icon-arrow-left"></span>
+                                <span class="breadcrumbs__navText">Назад</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="breadcrumbs__nav right">
+                                <span class="breadcrumbs__navText">Сохранить</span>
+                            </a>
+                        </li>
+                        <li class="breadcrumbs__li active">
+                            <span class="breadcrumbs__item">Спец поиск, режим настроек</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col col-5 col-sm-12 col-xs-12 pr-40">
+                    <div class="mainSection">
+                        <div class="mainSection__header">
+                            <div class="mainSection__title">Базовые параметры</div>
+                        </div>
+                        <div class="mainSection__body">
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Режим поиска</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <select class="formstyler" data-placeholder="Поиск по тегу">
+										<option value="0"></option>
+										<option value="1">Test</option>
+										<option value="2">TestTestTestTest</option>
+										<option value="3">Test</option>
+										<option value="4">Test</option>
+									</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество запросов</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="number" class="formstyler w100" value="290">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Пауза</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="number" class="formstyler w100" value="280">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество повторов при ошибке</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount01" readonly class="uiSlider__num">
+                                        <div id="slider01" class="uiSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Таймаут</div>
+                                </div>
+                                <div class="colRight col col-7 text_r">
+                                    <div class="colRight__in">
+                                        <input type="number" class="formstyler w100" value="100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <label for="tumbler01" class="label type2">Затирать предыдущий результат поиска из файла</label>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class="tumbler green-white tumbler-form">
+                                            <label class="tumbler__label">
+											<input type="checkbox" class="tumbler__input" id="tumbler01">
+											<span class="colRight tumbler__slider"></span>
+										</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainSection">
+                        <div class="mainSection__header">
+                            <!-- Nav tabs -->
+                            <ul class="nav-tabs tabs2" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#tab1" data-toggle="tab">
+									LOG
+								</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#tab2" data-toggle="tab">
+									Display
+								</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="mainSection__body">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane in active" id="tab1">
+                                    <div class="console">
+                                        <div id="console" class="dark"></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <div class="console">
+                                        <div class="dark" id="display"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-7 col-sm-12 col-xs-12">
+                    <div class="mainSection">
+                        <div class="mainSection__header">
+                            <div class="mainSection__title">Параметры инструмента</div>
+                        </div>
+                        <div class="mainSection__body">
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Выберите файл со списком тегов</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <select class="formstyler" data-placeholder="Слова для медиа [2]">
+										<option value="0"></option>
+										<option value="1">Test</option>
+										<option value="2">TestTestTestTest</option>
+										<option value="3">Test</option>
+										<option value="4">Test</option>
+									</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Описание файла данных</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <textarea class="field textarea " placeholder="Описание текстового поля"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество собираемых фото и видео</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <select class="formstyler" data-placeholder="Все">
+										<option value="0"></option>
+										<option value="1">Test</option>
+										<option value="2">TestTestTestTest</option>
+										<option value="3">Test</option>
+										<option value="4">Test</option>
+									</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <label for="tumbler02" class="label type2">Использовать фильтр?</label>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class="tumbler green-white tumbler-form text_l">
+                                            <label class="tumbler__label">
+											<input type="checkbox" class="tumbler__input" id="tumbler02">
+											<span class="colRight tumbler__slider"></span>
+										</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Описание файла данных</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" class="field text_c" placeholder="Введите описание файла">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">
+                                        <a href="" class="link" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Ссылка с тулипом</a>
+                                    </div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in"></div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <label for="tumbler04" class="label type2">Показать фильтры</label>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class="tumbler green-white tumbler-form text_l">
+                                            <label class="tumbler__label">
+											<input type="checkbox" class="tumbler__input js-toggleFilter" id="tumbler04">
+											<span class="colRight tumbler__slider"></span>
+										</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix row-just row-just3 mt-30">
+                                <button class="btn btn-sbm row-justItem">Запустить</button>
+                                <div class="btn-select row-justItem">
+                                    <select class="formstyler formstyler-green">
+									<option value="0" selected>Запустить через 1 час</option>
+									<option value="1">Test</option>
+									<option value="2">TestTestTestTest</option>
+									<option value="3">Test</option>
+									<option value="4">Test</option>
+								</select>
+                                </div>
+                                <button class="btn btn-sbm row-justItem">Сохранить настройки</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainSection filterBox">
+                        <div class="mainSection__header">
+                            <div class="mainSection__title">Фильтр</div>
+                        </div>
+                        <div class="mainSection__body">
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Набор ключевых слов в медиа</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <select class="formstyler">
+										<option value="0" selected>Нет</option>
+										<option value="1">Test</option>
+										<option value="2">TestTestTestTest</option>
+										<option value="3">Test</option>
+										<option value="4">Test</option>
+									</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество лайков в медиа</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount02" readonly class="uiSlider__num">
+                                        <div id="slider02" class="uiSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество комментариев в медиа</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount03" readonly class="uiSlider__num">
+                                        <div id="slider03" class="uiSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Дата последней публикации профиля</div>
+                                </div>
+                                <div class="colRight col col-7 text_r">
+                                    <div class="colRight__in">
+                                        <input type="number" class="formstyler w100" value="290">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <label for="tumbler03" class="label type2">Наличие аватарки в профиле</label>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class="tumbler green-white tumbler-form">
+                                            <label class="tumbler__label">
+											<input type="checkbox" class="tumbler__input" id="tumbler03">
+											<span class="colRight tumbler__slider"></span>
+										</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Ключевые слова в профиле</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <select class="formstyler">
+										<option value="0" selected>Нет</option>
+										<option value="1">Test</option>
+										<option value="2">TestTestTestTest</option>
+										<option value="3">Test</option>
+										<option value="4">Test</option>
+									</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество постов в профиле</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount04" readonly class="uiSlider__num">
+                                        <div id="slider04" class="uiSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество подписок в профиле</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount05" readonly class="uiSlider__num">
+                                        <div id="slider05" class="uiSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Количество подписчиков в профиле</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount06" readonly class="uiSlider__num">
+                                        <div id="slider06" class="uiSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Selected locations</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class="">
+                                            <div class="map__row remove_row">
+                                                <a href="" class="map__trash icon-trash2"></a>
+                                                <label class="customCheck__label check-map">
+												<span class="customCheck__labelPseudo">Алматы, Тау Спа</span>
+											</label>
+                                            </div>
+                                            <div class="map__row remove_row">
+                                                <a href="" class="map__trash icon-trash2"></a>
+                                                <label class="customCheck__label check-map">
+												<span class="customCheck__labelPseudo">Алматы, Тау Спа</span>
+											</label>
+                                            </div>
+                                            <div class="map__row remove_row">
+                                                <a href="" class="map__trash icon-trash2"></a>
+                                                <label class="customCheck__label check-map">
+												<span class="customCheck__labelPseudo">Алматы, Тау Спа</span>
+											</label>
+                                            </div>
+                                            <div class="map__row remove_row">
+                                                <a href="" class="map__trash icon-trash2"></a>
+                                                <label class="customCheck__label check-map">
+												<span class="customCheck__labelPseudo">Алматы, Тау Спа</span>
+											</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Slider range with infinity</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type="text" id="amount07" readonly class="uiSlider__num uiSlider__num-range">
+                                        <div id="slider07" class="uiSlider uiSlider-range"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <label for="check01" class="label type2">Custom checkbox01</label>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <label class="customCheck__label">
+			                            <span class="customCheck__labelRelative">
+			                                <input type="checkbox" class="customCheck__check" id="check01" checked>
+			                                <span class="customCheck__checkPseudo"></span>
+			                            </span>
+									</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <label class="customCheck__label">
+	                            <span class="customCheck__labelRelative">
+	                                <input type="checkbox" class="customCheck__check">
+	                                <span class="customCheck__checkPseudo"></span>
+	                            </span>
+								<span class="customCheck__labelPseudo">Custom checkbox02 with label</span>
+							</label>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Datepicker</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class='input-group date dateParent' id='datetimepicker1'>
+                                            <input type='text' class="field" />
+                                            <span class="input-group-addon dateTrigger">
+					                        <span class="icon icon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Datepicker with timepicker</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <div class='input-group date dateParent' id='datetimepicker2'>
+                                            <input type='text' class="field" />
+                                            <span class="input-group-addon dateTrigger">
+					                        <span class="icon icon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Chips</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <input type='text' class="field chips" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="colLeft col col-5">
+                                    <div class="label type2">Карта</div>
+                                </div>
+                                <div class="colRight col col-7">
+                                    <div class="colRight__in">
+                                        <a href="" class="btn btn-sbm" data-toggle="modal" data-target="#modalMap">Показать карту</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-RmUCW3_i3oKCdA8WKXglWipeiWWVMWw" async defer></script>
+    <script type="text/javascript" src="js/modules/logger.js"></script>
+    <script type="text/javascript" src="js/modules/map.js"></script>
+    <script type="text/javascript" src="js/components/tools.js"></script>
+
+</body>
+
+</html>

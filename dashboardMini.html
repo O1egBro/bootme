@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>DashboardMini</title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+
+    <!--styles-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--libs-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/libs/jquery-11.js"></script>
+    <script type="text/javascript" src="js/libs/device.min.js"></script>
+    <script type="text/javascript" src="js/libs/moment.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap-datetimepicker.js"></script>
+    <!--custom scroll-->
+    <script type="text/javascript" src="js/libs/scrollpane/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/libs/scrollpane/jquery.mousewheel.js"></script>
+    <!--cut text and add dots-->
+    <script type="text/javascript" src="js/libs/dodot/jquery.dotdotdot.min.js"></script>
+
+    <!--formstyler-->
+    <script type="text/javascript" src="js/libs/formstyler/jquery.formstyler.min.js"></script>
+
+    <!--ui slider-->
+    <script type="text/javascript" src="js/libs/ui_slider/jquery-ui.min.js"></script>
+
+    <!--formstyler-->
+    <script type="text/javascript" src="js/libs/materialize-tags/materialize-tags.js"></script>
+    <script type="text/javascript" src="js/libs/materialize-tags/typeahead.jquery.js"></script>
+
+    <!--modules-->
+    <script type="text/javascript" src="js/modules/menu.js"></script>
+    <script type="text/javascript" src="js/modules/notice.js"></script>
+    <script type="text/javascript" src="js/modules/modal.js"></script>
+    <script type="text/javascript" src="js/modules/toast.js"></script>
+
+    <!--general-->
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/components/dashboard.js"></script>
+</head>
+
+<body>
+    <div id="menuHint__wrap" class="menuHint__wrap">
+        <a href="" class="menuHint__link"></a>
+    </div>
+
+    <div class="modal fade" id="modalAddAcc">
+        <div class="modal-dialog">
+            <div class="modal-dialogAlignOut">
+                <div class="modal-dialogAlignIn">
+                    <div class="modal-dialogContent w-l">
+                        <div class="modal__header">
+                            <span class="modal__close icon-cross" data-dismiss="modal"></span>
+                            <h2 class="modal__headerTitle">
+                                Добавление аккаунта
+                            </h2>
+                        </div>
+                        <div class="modal__body">
+                            <div class="addAcc__navWrap">
+                                <ul class="addAcc__navList">
+                                    <!--Possible class: active, done-->
+                                    <li class="addAcc__navLi active">
+                                        <a href="#step1" class="addAcc__navItem js-addAccNav" data-toggle="tab">
+                                            <span class="addAcc__navItemIcon pic">
+												<img src="images/icons/pic-sheet@2x.png" height="48" alt=""/>
+											</span>
+                                            <span class="addAcc__navItemText">
+											Шаг 1: <br>
+											Знакомство
+										</span>
+                                        </a>
+                                    </li>
+                                    <li class="addAcc__navLi">
+                                        <a href="#step2" class="addAcc__navItem js-addAccNav" data-toggle="tab">
+                                            <span class="addAcc__navItemIcon icon-instagram"></span>
+                                            <span class="addAcc__navItemText">
+											Шаг 2: <br>
+											Авторизация
+										</span>
+                                        </a>
+                                    </li>
+                                    <li class="addAcc__navLi">
+                                        <a href="#step3" class="addAcc__navItem js-addAccNav" data-toggle="tab">
+                                            <span class="addAcc__navItemIcon icon-pin"></span>
+                                            <span class="addAcc__navItemText">
+											Шаг 3: <br>
+											Завершение
+										</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="addAcc__paneWrap">
+                                <div class="addAcc__pane active" id="step1">
+                                    <div class="addAcc__paneBody">
+                                        <p>
+                                            Перед добавлением нового аккаунта убедитесь, что у вас есть доступ к почте на которую зарегистрирован ваш аккаунт.
+                                        </p>
+                                        <p>
+                                            Инстаграм может инициировать сброс пароля к вашему аккаунту или потребовать подтверждения.
+                                        </p>
+                                        <p>
+                                            Подтвердив один раз с вашего телефона вы сможете пользоваться постингом без проблем.
+                                        </p>
+                                        <p>
+                                            Будьте внимательны, поскольку мы будем информировать вас в случае возникновения ошибок по выбранному вами методу уведомлений в общих настройках.
+                                        </p>
+                                    </div>
+                                    <div class="addAcc__paneFooter">
+                                        <button class="btn btn-sbm">Далее</button>
+                                    </div>
+                                </div>
+                                <div class="addAcc__pane" id="step2">
+                                    <div class="addAcc__paneBody">
+                                        <p>
+                                            При нажатии на кнопку Авторизовать вы соглашаетесь с уловиями нашей публичной оферты и политики конфиденциальности.
+
+                                        </p>
+                                        <p>
+                                            Добавленный вами аккаунт будет, автоматически, настроен на использование в постинге и задачах. Если же вам не нужны данные функции, то вы можете выключить их в настройках аккаунта после завершения авторизации.
+                                        </p>
+                                        <form action="#" class="addAcc__paneForm">
+                                            <fieldset class="addAcc__paneFormItem">
+                                                <legend class="addAcc__paneFormTitle">
+                                                    <img src="images/instagram-logo-black.png" height="37" alt="" />
+                                                </legend>
+                                                <label class="row text_c">
+													<span class="label">Логин</span>
+													<span class="field__wrap">
+														<input type="text" class="field" placeholder="Введите логин" tabindex="1">
+													</span>
+												</label>
+                                                <label class="row text_c">
+													<span class="label">Пароль</span>
+													<span class="field__wrap">
+														<input type="text" class="field" placeholder="Введите пароль" tabindex="2">
+													</span>
+												</label>
+                                                <div class="row">
+                                                    <button class="btn btn-sbm" tabindex="3">Авторизовать</button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="addAcc__paneFooter">
+                                        <button class="btn btn-cancel" tabindex="4">Отмена</button>
+                                        <button class="btn btn-sbm" tabindex="5">Далее</button>
+                                    </div>
+                                </div>
+                                <div class="addAcc__pane" id="step3">
+                                    <div class="addAcc__paneBody">
+                                        <p class="text_c">
+                                            Аккаунт, успешно, добавлен и будет доступен в панели “Мои Аккаунты” через несколько мгновений.
+                                        </p>
+                                        <div class="addAcc__paneAcc">
+                                            <div class="addAcc__paneAccPic">
+                                                <img src="images/img_cont/userPic.jpg" alt="" />
+                                            </div>
+                                            <div class="addAcc__paneAccName">MyTravelWorld</div>
+                                            <label class="row text_c">
+												<span class="label">Назовите свой аккаунт для быстрого поиска:</span>
+												<span class="field__wrap">
+													<input type="text" class="field" placeholder="Введите имя" tabindex="1">
+												</span>
+											</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="addAcc__paneFooter">
+                                        <button class="btn btn-sbm" tabindex="2">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <header class="header header-p-fixed">
+            <a href="" class="menu__btn js-menuTrigger">
+                <span class="menu__btnLine"></span>
+                <span class="menu__btnLine"></span>
+                <span class="menu__btnLine"></span>
+            </a>
+            <a href="" class="logo">
+                <img src="images/logo.png" alt="bootUpMe" class="logo__pic" />
+            </a>
+            <div class="dd headerUser">
+                <a href="" class="ddTrigger icon-arrow headerUser__trigger" data-toggle="dropdown">
+                    <span class="headerUser__photo">
+					<img src="images/img_cont/userPic.jpg" alt="" class="headerUser__pic"/>
+				</span>
+                    <span class="ddTrigger__text headerUser__name">
+					Arman Tolubayev
+				</span>
+                </a>
+                <div class="ddMenu">
+                    <ul class="ddMenu__list">
+                        <li class="ddMenu__item headerUser__ddItem text_c visible-xs">
+                            <button class="btn btn-sbm" data-toggle="modal" data-target="#modalAddAcc">Добавить аккаунт</button>
+                        </li>
+                        <li class="ddMenu__item headerUser__ddItem">
+                            <a href="" class="ddMenu__link">
+                                <span class="headerUser__ddItemIcon icon-settings navIcon-settings"></span>
+                                <span class="headerUser__ddItemText">Настройки</span>
+                            </a>
+                        </li>
+                        <li class="ddMenu__item headerUser__ddItem">
+                            <a href="" class="ddMenu__link">
+                                <span class="headerUser__ddItemIcon icon-power navIcon-leave"></span>
+                                <span class="headerUser__ddItemText">Выход</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerNotice">
+                <a href="" class="headerNotice__trigger js-headerNotice">
+                    <span class="headerNotice__index">1</span>
+                    <img src="images/icons/pic-bell@2x.png" alt="" class="headerNotice__pic" />
+                </a>
+            </div>
+            <div class="headerAdd hidden-xs">
+                <button class="btn btn-sbm" data-toggle="modal" data-target="#modalAddAcc">Добавить аккаунт</button>
+            </div>
+        </header>
+        <div class="menu ">
+            <div class="menu__header">
+                <div class="menu__headerTitle">Активный Instagram аккаунт:</div>
+                <div class="dd menuUser__dd">
+                    <a href="" class="ddTrigger icon-arrow menuUser__trigger" data-toggle="dropdown">
+                        <span class="menuUser__photo">
+						<span class="status notActive"></span>
+                        <img src="images/img_cont/userPic.jpg" alt="" class="menuUser__pic">
+                        </span>
+                        <span class="ddTrigger__text menuUser__name">
+						Arman Tolubayev
+					</span>
+                    </a>
+                    <div class="ddMenu">
+                        <ul class="ddMenu__list">
+                            <li class="ddMenu__item menuUser__ddItem">
+                                <a href="" class="ddMenu__link">
+                                    <span class="menuUser__ddItemIcon icon-settings navIcon-settings"></span>
+                                    <span class="menuUser__ddItemText">Настройки</span>
+                                </a>
+                            </li>
+                            <li class="ddMenu__item menuUser__ddItem">
+                                <a href="" class="ddMenu__link">
+                                    <span class="menuUser__ddItemIcon icon-power navIcon-leave"></span>
+                                    <span class="menuUser__ddItemText">Выход</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu__footer">
+                <a href="" class="nav__item menuHint" data-tooltip-text="Выйти">
+                    <span class="nav__itemIcon icon-power navIcon-leave"></span>
+                    <span class="nav__itemText">Выйти</span>
+                </a>
+            </div>
+
+            <div class="menu__scroll">
+                <div class="scrollpane">
+                    <nav class="nav">
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Аккаунты">
+                            <span class="nav__itemIcon icon-user navIcon-acc"></span>
+                            <span class="nav__itemText">Аккаунты</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Статистика">
+                            <span class="nav__itemIcon icon-chart navIcon-statistic"></span>
+                            <span class="nav__itemText">Статистика</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Инструменты">
+                            <span class="nav__itemIcon icon-key navIcon-tools"></span>
+                            <span class="nav__itemText">Инструменты</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Задачи">
+                            <span class="nav__itemIcon icon-notepad navIcon-goals"></span>
+                            <span class="nav__itemText">Задачи</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Постинг">
+                            <span class="nav__itemIcon icon-instagram navIcon-insta"></span>
+                            <span class="nav__itemText">Постинг</span>
+                        </a>
+                        <a href="" class="nav__item active menuHint" data-tooltip-text="Магазин">
+                            <span class="nav__itemIcon icon-bag navIcon-shop"></span>
+                            <span class="nav__itemText">Магазин</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Руководства">
+                            <span class="nav__itemIcon icon-book navIcon-management"></span>
+                            <span class="nav__itemText">Руководства</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Поддержка">
+                            <span class="nav__itemIcon icon-msg navIcon-support"></span>
+                            <span class="nav__itemText">Поддержка</span>
+                        </a>
+                        <a href="" class="nav__item menuHint" data-tooltip-text="Настройки">
+                            <span class="nav__itemIcon icon-settings navIcon-settings"></span>
+                            <span class="nav__itemText">Настройки</span>
+                        </a>
+                        <a href="0" class="nav__item menuHint js-menuTrigger" data-tooltip-text="Свернуть меню">
+                            <span class="nav__itemIcon icon-arrow2 navIcon-collapse navIcon-collapse"></span>
+                            <span class="nav__itemText">Свернуть меню</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="notice__wrap">
+            <ul class="noticeNav__wrap">
+                <li class="noticeNav__li active">
+                    <a href="" data-tab-class="notification" class="noticeNav__item js-noticeNav">Уведомления</a>
+                </li>
+                <li class="noticeNav__li">
+                    <a href="#" data-tab-class="msg" class="noticeNav__item js-noticeNav">Сообщения</a>
+                </li>
+            </ul>
+            <div class="noticePane__wrap">
+                <div class="noticePane active" id="notification">
+                    <div class="noticePane__scroll">
+                        <div class="scrollpane dark">
+                            <ul class="noticePane__list">
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-bag noticeIcon-shop"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Заканчивается срок действия пакета PRO. Не забудьте продлить его до 5.11.2016
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-instagram noticeIcon-insta"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Запланированный вами пост на 23:15 1.11.2016 года опубликован
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-notepad noticeIcon-goals"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Задача “Поиск по Москве” завершена. Результат собран в файл “Москва для девушек”
+                                        </p>
+                                        <button class="btn btn-openNotice">Открыть</button>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-chart noticeIcon-statistic"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Статистика за октябрь 2016 года готова для анализа
+                                        </p>
+                                        <button class="btn btn-openNotice">Просмотреть</button>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-bag noticeIcon-shop"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            В магазин добавлен новый пакет для поиска и анализа больших данных в облаке.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="noticePane" id="msg">
+                    <div class="noticePane__header">
+                        <div class="noticeSearch__wrap">
+                            <span class="noticeSearch__icon icon-search"></span>
+                            <input type="submit" class="noticeSearch__sbm">
+
+                            <div class="dd noticeSearch__sortDD">
+                                <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                    <span class="ddTrigger__text">Только онлайн</span>
+                                </a>
+                                <div class="ddMenu">
+                                    <ul class="ddMenu__list">
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link">Только онлайн</a>
+                                        </li>
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link">Все</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <input type="text" class="field noticeSearch__field">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="noticePane__scroll noticePane__scroll-margin">
+                        <div class="scrollpane dark">
+                            <ul class="noticePane__list">
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">Не работает постинг</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Вы: Нет, это была системная ошибка, я ничего не могу сделать
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">Не могу скачать статистику</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											На систему надейся, а сам не плошай. Пословица
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus red"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">А где раздел помощь?</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Я так и думала, что у вас там, что-то сломалось
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">вчера</span>
+                                        <span class="noticeMsg__title">Куда делся старый дизайн</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Куда делся старый дизайн
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="content content-db ">
+            <div class="sidebar sidebar-fixed">
+                <a href="" class="addWidget">
+                    <span class="addWidget__icon icon-cross2"></span>
+                    <span class="addWidget__text">Добавить <br> виджет</span>
+                </a>
+                <a href="" class="addWidget">
+                    <span class="addWidget__icon icon-cross2"></span>
+                    <span class="addWidget__text">Добавить <br> виджет</span>
+                </a>
+            </div>
+            <div class="main">
+                <div class="filter__wrap">
+                    <div class="filter__col left">
+                        <div class="filter__item">
+                            <div class="filter__title">Показывать:</div>
+                            <div class="dd filter__dd">
+                                <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                    <div class="ddTrigger__text">Все</div>
+                                </a>
+                                <div class="ddMenu">
+                                    <ul class="ddMenu__list">
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link js-dd-sel">Все</a>
+                                        </li>
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link js-dd-sel">ТестТест</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__col right">
+                        <div class="filter__item">
+                            <a href="#dbItemView-lg" class="filter__type active">
+                                <span class="filter__typeIcon icon-type-lg"></span>
+                            </a>
+                            <a href="#dbItemView-sm" class="filter__type">
+                                <span class="filter__typeIcon icon-type-sm"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainSection db__itemView active" id="dbItemView-lg">
+                    <div class="db__item">
+                        <div class="db__itemPic">
+                            <img src="images/img_cont/userPic.jpg" alt="" class="db__itemImg">
+                        </div>
+                        <div class="db__itemText">
+                            <div class="db__itemInfo">
+                                <div class="db__itemName">MyTravelWorld</div>
+                                <div class="db__itemDescr">
+                                    Мир путешественника, глазами обывателей. Делайте свои фотографии и отмечайте @MyTravelWorld в описании. Никакой рекламы и перепостов из магазинов.
+                                </div>
+                            </div>
+                            <div class="db__itemBtns">
+                                <button class="btn btn-dbOpenAcc">Открыть аккаунт</button>
+                                <a href="" class="db__itemSettings">Настройки</a>
+                            </div>
+                            <div class="db__itemData">
+                                <div class="db__itemDataLi">
+                                    <div class="db__itemDataNum">1342</div>
+                                    <div class="db__itemDataLabel">постов</div>
+                                </div>
+                                <div class="db__itemDataLi">
+                                    <div class="db__itemDataNum">34к</div>
+                                    <div class="db__itemDataLabel">подписчика
+                                        <div class="db__dif neg">
+                                            <div class="db__difNum">-123</div>
+                                            <div class="db__difIcon"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="db__itemDataLi">
+                                    <div class="db__itemDataNum">10</div>
+                                    <div class="db__itemDataLabel">подписок</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="db__itemFooter">
+                            <div class="db__itemFooterLi">
+                                <span class="status notActive"></span>
+                                <span class="">Требуется реавторизация</span>
+                            </div>
+                            <div class="db__itemFooterLi">Активность приостановлена</div>
+                            <div class="db__itemFooterLi">d.loginov@mail.ru</div>
+                        </div>
+                    </div>
+                    <div class="db__item">
+                        <div class="db__itemPic">
+                            <img src="images/img_cont/userPic.jpg" alt="" class="db__itemImg">
+                        </div>
+                        <div class="db__itemText">
+                            <div class="db__itemInfo">
+                                <div class="db__itemName">AngryPanda</div>
+                                <div class="db__itemDescr">
+                                    The official chanel for angry pandas. We never sleep, we post pics and videos about you and your life. DM for a paid shotout. #EvilPanda #BoredPanda
+                                </div>
+                            </div>
+                            <div class="db__itemBtns">
+                                <button class="btn btn-dbOpenAcc">Открыть аккаунт</button>
+                                <a href="" class="db__itemSettings">Настройки</a>
+                            </div>
+                            <div class="db__itemData">
+                                <div class="db__itemDataLi">
+                                    <div class="db__itemDataNum">1430</div>
+                                    <div class="db__itemDataLabel">постов</div>
+                                </div>
+                                <div class="db__itemDataLi">
+                                    <div class="db__itemDataNum">933к</div>
+                                    <div class="db__itemDataLabel">подписчика
+                                        <div class="db__dif pos">
+                                            <div class="db__difIcon"></div>
+                                            <div class="db__difNum">+123</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="db__itemDataLi">
+                                    <div class="db__itemDataNum">123</div>
+                                    <div class="db__itemDataLabel">подписок</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="db__itemFooter">
+                            <div class="db__itemFooterLi">
+                                <span class="status active"></span>
+                                <span class="">Аккаунт активен</span>
+                            </div>
+                            <div class="db__itemFooterLi">Активность приостановлена</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainSection db__itemView" id="dbItemView-sm">
+                    <div class="db__table">
+                        <div class="db__tableHead">
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Аккаунт</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Постов</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Подписчики</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Подписок</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Активная задача</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Настройки</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn"></div>
+                            </div>
+                        </div>
+                        <div class="db__tableRow">
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__tableUserDD dd">
+                                        <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                            <span class="status active"></span>
+                                            <span class="ddTrigger__text">MyTravelWorld</span>
+                                        </a>
+                                        <div class="ddMenu">
+                                            <ul class="ddMenu__list">
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test1</a>
+                                                </li>
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test2</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">1 374</span>
+                                    <span class="db__tdDif neg">-1</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">34 564</span>
+                                    <span class="db__tdDif neg">-1</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">234</span>
+                                    <span class="db__tdDif neg">-1</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Поиск по тегу #Москва</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__moreIcon icon-dots"></div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl"><a href="" class="db__tdLink">Открыть</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="db__tableRow">
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__tableUserDD dd">
+                                        <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                            <span class="status notActive"></span>
+                                            <span class="ddTrigger__text">TattooPics</span>
+                                        </a>
+                                        <div class="ddMenu">
+                                            <ul class="ddMenu__list">
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test1</a>
+                                                </li>
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test2</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">1 246</span>
+                                    <span class="db__tdDif pos">+9</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">321 345</span>
+                                    <span class="db__tdDif pos">+9</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">253</span>
+                                    <span class="db__tdDif pos">+9</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Лайки из файла МояМоскваДевушки</span>
+                                    <!--Постинг изображений из файла “Хипс…-->
+                                    <!--—-->
+                                    <!--—-->
+                                    <!--—-->
+                                    <!--Комментирование изображений из ф...-->
+                                    <!--—-->
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__moreIcon icon-dots"></div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl"><a href="" class="db__tdLink">Открыть</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="db__tableRow">
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__tableUserDD dd">
+                                        <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                            <span class="status active"></span>
+                                            <span class="ddTrigger__text">MyTravelWorld</span>
+                                        </a>
+                                        <div class="ddMenu">
+                                            <ul class="ddMenu__list">
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test1</a>
+                                                </li>
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test2</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">1 374</span>
+                                    <span class="db__tdDif neg">-1</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">34 564</span>
+                                    <span class="db__tdDif neg">-1</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">234</span>
+                                    <span class="db__tdDif neg">-1</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">Поиск по тегу #Москва</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__moreIcon icon-dots"></div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl"><a href="" class="db__tdLink">Открыть</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="db__tableRow">
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__tableUserDD dd">
+                                        <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                            <span class="status notActive"></span>
+                                            <span class="ddTrigger__text">TattooPics</span>
+                                        </a>
+                                        <div class="ddMenu">
+                                            <ul class="ddMenu__list">
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test1</a>
+                                                </li>
+                                                <li class="ddMenu__item">
+                                                    <a href="" class="ddMenu__link">Test2</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">1 246</span>
+                                    <span class="db__tdDif pos">+9</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">321 345</span>
+                                    <span class="db__tdDif pos">+9</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">253</span>
+                                    <span class="db__tdDif pos">+9</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl">—</span>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <div class="db__moreIcon icon-dots"></div>
+                                </div>
+                            </div>
+                            <div class="db__td">
+                                <div class="db__tdIn">
+                                    <span class="textEl"><a href="" class="db__tdLink">Открыть</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

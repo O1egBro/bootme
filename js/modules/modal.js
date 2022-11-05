@@ -1,0 +1,1 @@
+"use strict";var Modal={init:function(){Modal.initJQueryEvents()},initJQueryEvents:function(){$(".modal-dialogAlignOut").on("click",function(t){$(t.target).hasClass("modal-dialogContent")||$(t.target).closest(".modal-dialogContent").length||$(".modal").modal("hide")})}};$(function(){Modal.init()});

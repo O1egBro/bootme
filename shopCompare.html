@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>ShopCompare</title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+
+    <!--styles-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--libs-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/libs/jquery-11.js"></script>
+    <script type="text/javascript" src="js/libs/device.min.js"></script>
+    <script type="text/javascript" src="js/libs/moment.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap-datetimepicker.js"></script>
+    <!--custom scroll-->
+    <script type="text/javascript" src="js/libs/scrollpane/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/libs/scrollpane/jquery.mousewheel.js"></script>
+    <!--cut text and add dots-->
+    <script type="text/javascript" src="js/libs/dodot/jquery.dotdotdot.min.js"></script>
+
+    <!--formstyler-->
+    <script type="text/javascript" src="js/libs/formstyler/jquery.formstyler.min.js"></script>
+
+    <!--ui slider-->
+    <script type="text/javascript" src="js/libs/ui_slider/jquery-ui.min.js"></script>
+
+    <!--formstyler-->
+    <script type="text/javascript" src="js/libs/materialize-tags/materialize-tags.js"></script>
+    <script type="text/javascript" src="js/libs/materialize-tags/typeahead.jquery.js"></script>
+
+    <!--modules-->
+    <script type="text/javascript" src="js/modules/menu.js"></script>
+    <script type="text/javascript" src="js/modules/notice.js"></script>
+    <script type="text/javascript" src="js/modules/modal.js"></script>
+    <script type="text/javascript" src="js/modules/toast.js"></script>
+
+    <!--general-->
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/components/shop.js"></script>
+</head>
+
+<body>
+    <div id="menuHint__wrap" class="menuHint__wrap">
+        <a href="" class="menuHint__link"></a>
+    </div>
+
+
+    <div class="wrapper">
+        <header class="header header-p-fixed">
+            <a href="" class="menu__btn js-menuTrigger">
+                <span class="menu__btnLine"></span>
+                <span class="menu__btnLine"></span>
+                <span class="menu__btnLine"></span>
+            </a>
+            <a href="" class="logo">
+                <img src="images/logo.png" alt="bootUpMe" class="logo__pic" />
+            </a>
+            <div class="dd headerUser">
+                <a href="" class="ddTrigger icon-arrow headerUser__trigger" data-toggle="dropdown">
+                    <span class="headerUser__photo">
+					<img src="images/img_cont/userPic.jpg" alt="" class="headerUser__pic"/>
+				</span>
+                    <span class="ddTrigger__text headerUser__name">
+					Arman Tolubayev
+				</span>
+                </a>
+                <div class="ddMenu">
+                    <ul class="ddMenu__list">
+                        <li class="ddMenu__item headerUser__ddItem">
+                            <a href="" class="ddMenu__link">
+                                <span class="headerUser__ddItemIcon icon-settings navIcon-settings"></span>
+                                <span class="headerUser__ddItemText">Настройки</span>
+                            </a>
+                        </li>
+                        <li class="ddMenu__item headerUser__ddItem">
+                            <a href="" class="ddMenu__link">
+                                <span class="headerUser__ddItemIcon icon-power navIcon-leave"></span>
+                                <span class="headerUser__ddItemText">Выход</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerNotice">
+                <a href="" class="headerNotice__trigger js-headerNotice">
+                    <span class="headerNotice__index">1</span>
+                    <img src="images/icons/pic-bell@2x.png" alt="" class="headerNotice__pic" />
+                </a>
+            </div>
+        </header>
+        <div class="menu ">
+            <div class="menu__header">
+                <div class="menu__headerTitle">Активный Instagram аккаунт:</div>
+                <div class="dd menuUser__dd">
+                    <a href="" class="ddTrigger icon-arrow menuUser__trigger" data-toggle="dropdown">
+                        <span class="menuUser__photo">
+						<span class="status notActive"></span>
+                        <img src="images/img_cont/userPic.jpg" alt="" class="menuUser__pic">
+                        </span>
+                        <span class="ddTrigger__text menuUser__name">
+						Arman Tolubayev
+					</span>
+                    </a>
+                    <div class="ddMenu">
+                        <ul class="ddMenu__list">
+                            <li class="ddMenu__item menuUser__ddItem">
+                                <a href="" class="ddMenu__link">
+                                    <span class="menuUser__ddItemIcon icon-settings navIcon-settings"></span>
+                                    <span class="menuUser__ddItemText">Настройки</span>
+                                </a>
+                            </li>
+                            <li class="ddMenu__item menuUser__ddItem">
+                                <a href="" class="ddMenu__link">
+                                    <span class="menuUser__ddItemIcon icon-power navIcon-leave"></span>
+                                    <span class="menuUser__ddItemText">Выход</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu__footer">
+                <a href="https://example11" class="nav__item menuHint" data-tooltip-text="Выйти">
+                    <span class="nav__itemIcon icon-power navIcon-leave"></span>
+                    <span class="nav__itemText">Выйти</span>
+                </a>
+            </div>
+
+            <div class="menu__scroll">
+                <div class="scrollpane">
+                    <nav class="nav">
+                        <a href="https://example1" class="nav__item menuHint" data-tooltip-text="Аккаунты">
+                            <span class="nav__itemIcon icon-user navIcon-acc"></span>
+                            <span class="nav__itemText">Аккаунты</span>
+                        </a>
+                        <a href="https://example2" class="nav__item menuHint" data-tooltip-text="Статистика">
+                            <span class="nav__itemIcon icon-chart navIcon-statistic"></span>
+                            <span class="nav__itemText">Статистика</span>
+                        </a>
+                        <a href="https://example3" class="nav__item menuHint" data-tooltip-text="Инструменты">
+                            <span class="nav__itemIcon icon-key navIcon-tools"></span>
+                            <span class="nav__itemText">Инструменты</span>
+                        </a>
+                        <a href="https://example4" class="nav__item menuHint" data-tooltip-text="Задачи">
+                            <span class="nav__itemIcon icon-notepad navIcon-goals"></span>
+                            <span class="nav__itemText">Задачи</span>
+                        </a>
+                        <a href="https://example5" class="nav__item menuHint" data-tooltip-text="Постинг">
+                            <span class="nav__itemIcon icon-instagram navIcon-insta"></span>
+                            <span class="nav__itemText">Постинг</span>
+                        </a>
+                        <a href="https://example6" class="nav__item active menuHint" data-tooltip-text="Магазин">
+                            <span class="nav__itemIcon icon-bag navIcon-shop"></span>
+                            <span class="nav__itemText">Магазин</span>
+                        </a>
+                        <a href="https://example7" class="nav__item menuHint" data-tooltip-text="Руководства">
+                            <span class="nav__itemIcon icon-book navIcon-management"></span>
+                            <span class="nav__itemText">Руководства</span>
+                        </a>
+                        <a href="https://example8" class="nav__item menuHint" data-tooltip-text="Поддержка">
+                            <span class="nav__itemIcon icon-msg navIcon-support"></span>
+                            <span class="nav__itemText">Поддержка</span>
+                        </a>
+                        <a href="https://example9" class="nav__item menuHint" data-tooltip-text="Настройки">
+                            <span class="nav__itemIcon icon-settings navIcon-settings"></span>
+                            <span class="nav__itemText">Настройки</span>
+                        </a>
+                        <a href="https://example10" class="nav__item menuHint js-menuTrigger" data-tooltip-text="Свернуть меню">
+                            <span class="nav__itemIcon icon-arrow2 navIcon-collapse navIcon-collapse"></span>
+                            <span class="nav__itemText">Свернуть меню</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="notice__wrap">
+            <ul class="noticeNav__wrap">
+                <li class="noticeNav__li active">
+                    <a href="" data-tab-class="notification" class="noticeNav__item js-noticeNav">Уведомления</a>
+                </li>
+                <li class="noticeNav__li">
+                    <a href="#" data-tab-class="msg" class="noticeNav__item js-noticeNav">Сообщения</a>
+                </li>
+            </ul>
+            <div class="noticePane__wrap">
+                <div class="noticePane active" id="notification">
+                    <div class="noticePane__scroll">
+                        <div class="scrollpane dark">
+                            <ul class="noticePane__list">
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-bag noticeIcon-shop"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Заканчивается срок действия пакета PRO. Не забудьте продлить его до 5.11.2016
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-instagram noticeIcon-insta"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Запланированный вами пост на 23:15 1.11.2016 года опубликован
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-notepad noticeIcon-goals"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Задача “Поиск по Москве” завершена. Результат собран в файл “Москва для девушек”
+                                        </p>
+                                        <button class="btn btn-openNotice">Открыть</button>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-chart noticeIcon-statistic"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            Статистика за октябрь 2016 года готова для анализа
+                                        </p>
+                                        <button class="btn btn-openNotice">Просмотреть</button>
+                                    </div>
+                                </li>
+                                <li class="noticeNote__item">
+                                    <div class="noticeNote__icon icon-bag noticeIcon-shop"></div>
+                                    <div class="noticeNote__info">
+                                        <p>
+                                            В магазин добавлен новый пакет для поиска и анализа больших данных в облаке.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="noticePane" id="msg">
+                    <div class="noticePane__header">
+                        <div class="noticeSearch__wrap">
+                            <span class="noticeSearch__icon icon-search"></span>
+                            <input type="submit" class="noticeSearch__sbm">
+
+                            <div class="dd noticeSearch__sortDD">
+                                <a href="" class="ddTrigger icon-arrow" data-toggle="dropdown">
+                                    <span class="ddTrigger__text">Только онлайн</span>
+                                </a>
+                                <div class="ddMenu">
+                                    <ul class="ddMenu__list">
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link">Только онлайн</a>
+                                        </li>
+                                        <li class="ddMenu__item">
+                                            <a href="" class="ddMenu__link">Все</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <input type="text" class="field noticeSearch__field">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="noticePane__scroll noticePane__scroll-margin">
+                        <div class="scrollpane dark">
+                            <ul class="noticePane__list">
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">Не работает постинг</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Вы: Нет, это была системная ошибка, я ничего не могу сделать
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">Не могу скачать статистику</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											На систему надейся, а сам не плошай. Пословица
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus red"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">12:43</span>
+                                        <span class="noticeMsg__title">А где раздел помощь?</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Я так и думала, что у вас там, что-то сломалось
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="noticeMsg__li">
+                                    <a href="" class="noticeMsg__item">
+                                        <span class="noticeMsg__pic">
+										<span class="noticeMsg__userStatus green"></span>
+                                        <img src="images/img_cont/userPic.jpg" alt="" class="noticeMsg__img" />
+                                        </span>
+                                        <span class="noticeMsg__header">
+										<span class="noticeMsg__date">вчера</span>
+                                        <span class="noticeMsg__title">Куда делся старый дизайн</span>
+                                        </span>
+                                        <span class="noticeMsg__body">
+										<span>
+											Куда делся старый дизайн
+										</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="content content-shop ">
+            <div class="main">
+                <div class="mainSection">
+                    <div class="mainSection">
+                        <ul class="breadcrumbs">
+                            <li class="breadcrumbs__li">
+                                <a href="" class="breadcrumbs__item">Магазин</a>
+                            </li>
+                            <li class="breadcrumbs__li active">
+                                <span class="breadcrumbs__item">Сравнение пакетов</span>
+                            </li>
+                        </ul>
+                        <div class="compare__wrap">
+                            <div class="compare__row">
+                                <div class="compare__td">Функции пакета</div>
+                                <div class="compare__td">Пакет Стандарт</div>
+                                <div class="compare__td">Пакет PRO</div>
+                                <div class="compare__td">Пакет PRO Plus</div>
+                            </div>
+                            <div class="compare__row">
+                                <div class="compare__td">Работа по тегу</div>
+                                <div class="compare__td">Нет</div>
+                                <div class="compare__td">Да</div>
+                                <div class="compare__td">Да</div>
+                            </div>
+                            <div class="compare__row">
+                                <div class="compare__td">Количество лайков по тегу</div>
+                                <div class="compare__td">Статичное</div>
+                                <div class="compare__td">Изменяемое</div>
+                                <div class="compare__td">Изменяемое</div>
+                            </div>
+                            <div class="compare__row">
+                                <div class="compare__td">Антибан</div>
+                                <div class="compare__td">Нет</div>
+                                <div class="compare__td">Да</div>
+                                <div class="compare__td">Да</div>
+                            </div>
+                            <div class="compare__row">
+                                <div class="compare__td">Цена</div>
+                                <div class="compare__td">401.99₽ / 365 дней</div>
+                                <div class="compare__td">602.99₽ / 365 дней</div>
+                                <div class="compare__td">602.99₽ / 365 дней</div>
+                            </div>
+                            <div class="compare__footer">
+                                <div class="compare__td">
+                                    <div class="tumbler green-white">
+                                        <label class="tumbler__label">
+										<input type="checkbox" class="tumbler__input">
+										<span class="tumbler__text">Показывать только различия</span>
+										<span class="tumbler__slider"></span>
+									</label>
+                                    </div>
+                                </div>
+                                <div class="compare__td">
+                                    <button class="btn btn-compareMore">Подробнее</button>
+                                </div>
+                                <div class="compare__td">
+                                    <button class="btn btn-compareMore">Подробнее</button>
+                                </div>
+                                <div class="compare__td">
+                                    <button class="btn btn-compareMore">Подробнее</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
